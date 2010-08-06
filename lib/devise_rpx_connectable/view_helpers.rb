@@ -60,7 +60,7 @@ module Devise #:nodoc:
         end
         
         def build_token_url(return_url)
-          token = return_url.include?"?" ? "&" : "?"
+          token = (return_url.include?("?") ? "&" : "?")
           "#{return_url}#{token}authenticity_token=#{Rack::Utils.escape(form_authenticity_token)}"
         end
       
